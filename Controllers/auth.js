@@ -40,7 +40,10 @@ const register = asyncHandler(async (req, res) => {
     password,
     year,
     role,
+<<<<<<< HEAD
     confirmPassword,
+=======
+>>>>>>> b1a1c99a2d04bb0d05a80d587f51850a1a58ecaf
     classe,
   } = req.body;
 
@@ -56,8 +59,16 @@ const register = asyncHandler(async (req, res) => {
   if (student) {
     return res.status(400).json({ message: "الرقم الجامعي موجود سابقاً" });
   }
+<<<<<<< HEAD
   const salt = await bcrypt.genSalt(10);
   const hashedPassword = await bcrypt.hash(password, salt);
+=======
+  console.log(1)
+  const salt = await bcrypt.genSalt(10);
+  console.log(2)
+  const hashedPassword = await bcrypt.hash(req.body.password, salt);
+  console.log(3)
+>>>>>>> b1a1c99a2d04bb0d05a80d587f51850a1a58ecaf
   let user;
   if (role === "student") {
     user = new Student({
